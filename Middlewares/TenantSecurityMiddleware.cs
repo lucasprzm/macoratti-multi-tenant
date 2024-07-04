@@ -29,9 +29,9 @@ namespace Macoratti_MultiTenant.Middlewares
                     return;
                 }
 
-                TenantRepository _tenentRepository = new TenantRepository(configuration,
+                TenantRepository _tenantRepository = new TenantRepository(configuration,
                  httpContextAccessor);
-                string tenantId = await _tenentRepository.GetTenantId(apiKeyGuid);
+                string tenantId = await _tenantRepository.GetTenantId(apiKeyGuid);
                 context.Session.SetString("TenantId", tenantId);
             }
             await next.Invoke(context);
